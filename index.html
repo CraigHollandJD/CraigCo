@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CrAIgCo | The T.O.P. Team</title>
+<style>
+:root{--navy:#091c39;--blue:#1f67af;--gold:#d4a857;--strength:.42;--travel:14px;--duration:10s}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:#eaf2ff;background:var(--navy);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit}header{position:relative;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px clamp(20px,5vw,80px);border-bottom:1px solid #ffffff25;background:#071830e8}
+.logo{font-size:clamp(29px,3vw,39px);font-weight:900;letter-spacing:-2px;text-decoration:none;color:#cad5e2;text-shadow:1px 2px 2px #000}.logo b{font-size:1.18em;color:#62a8f4;text-shadow:0 0 18px #1f86ed77}.nav{display:flex;gap:23px;font-size:14px}.nav a{text-decoration:none;color:#d1dff3}
+.hero{position:relative;isolation:isolate;min-height:660px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 78% 25%,#236fa266,transparent 42%),linear-gradient(140deg,#132e54,#081832 68%)}
+.hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(120deg,transparent 0 90px,#ffffff03 91px 92px);z-index:-1}
+/* ★ THE IMAGE OVERLAY: actual uploaded art, not a GIF or replacement page */
+.team-art{position:absolute;z-index:-1;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:var(--strength);pointer-events:none;filter:saturate(.88);mask-image:linear-gradient(to bottom,transparent 0%,black 13%,black 76%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 13%,black 76%,transparent 100%)}
+/* ★ Choose ONE motion preset by setting data-motion on body */
+body[data-motion="fade"] .team-art{animation:teamFade var(--duration) ease-in-out infinite}
+body[data-motion="drift"] .team-art{animation:teamDrift var(--duration) ease-in-out infinite alternate}
+body[data-motion="float"] .team-art{animation:teamFloat var(--duration) ease-in-out infinite}
+body[data-motion="blend"] .team-art{animation:teamBlend var(--duration) ease-in-out infinite}
+body[data-motion="still"] .team-art{animation:none}
+body.paused .team-art{animation-play-state:paused}
+@keyframes teamFade{0%,100%{opacity:0}45%,60%{opacity:var(--strength)}}
+@keyframes teamDrift{from{opacity:var(--strength);transform:translateX(calc(-1 * var(--travel))) scale(1.045)}to{opacity:var(--strength);transform:translateX(var(--travel)) scale(1.045)}}
+@keyframes teamFloat{0%,100%{opacity:var(--strength);transform:translateY(0) scale(1.04)}50%{opacity:var(--strength);transform:translateY(calc(-1 * var(--travel))) scale(1.04)}}
+@keyframes teamBlend{0%,100%{opacity:0;transform:translateX(calc(-1 * var(--travel))) scale(1.06)}28%,60%{opacity:var(--strength)}52%{transform:translateX(var(--travel)) scale(1.06)}}
+.hero-content{position:relative;width:min(1030px,90vw);padding:90px 0 140px;text-align:center;text-shadow:0 3px 20px #051020}
+.eyebrow{letter-spacing:.25em;font-weight:750;color:#efc773;text-transform:uppercase;font-size:12px}.hero h1{font-size:clamp(46px,7.1vw,100px);line-height:1.02;letter-spacing:-.055em;margin:18px 0 24px}.hero h1 .accent{color:#8fc5ff}.hero p{max-width:710px;margin:0 auto 28px;line-height:1.7;font-size:clamp(17px,2.1vw,23px)}.buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.btn{display:inline-block;text-decoration:none;background:#ddad57;color:#0c2341;padding:14px 24px;border-radius:999px;font-weight:800;box-shadow:0 8px 25px #06162966}.btn.secondary{background:#ffffff16;color:white;border:1px solid #ffffff6b}
+.controls{position:relative;z-index:3;width:min(1030px,92vw);margin:-56px auto 36px;padding:18px 22px;background:#f9f6ee;color:#1b2f49;box-shadow:0 13px 40px #030d205a;border-radius:17px;display:flex;flex-wrap:wrap;gap:16px 26px;align-items:end}.control{display:grid;gap:7px;min-width:135px;flex:1}.control label{font-size:13px;font-weight:800}.control select,.control input{width:100%}.control select{border-radius:9px;padding:9px 10px;border:1px solid #aeb8c2;background:white}.control input{accent-color:#236cae}.pause{padding:11px 16px;border-radius:9px;border:0;background:#183a63;color:white;font-weight:700;cursor:pointer}.hint{width:100%;font-size:12px;color:#52647a;margin:0}
+.section{max-width:1120px;margin:0 auto;padding:45px 28px 90px}.section h2{font-size:clamp(30px,4vw,48px);margin:10px 0}.section p{color:#bdcce0;line-height:1.65}.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}.tile{background:#ffffff0c;border:1px solid #ffffff24;border-radius:16px;padding:23px}.tile h3{color:#f4cf85;margin-top:0}footer{border-top:1px solid #ffffff22;padding:24px 28px;text-align:center;color:#93a9c7}
+@media(max-width:700px){.nav{display:none}.hero{min-height:600px}.hero-content{padding:86px 0 130px}.team-art{object-position:center}.tiles{grid-template-columns:1fr}.controls{gap:12px}.control{min-width:110px}}
+/* ★ Accessibility: if device requests reduced motion, the team remains visible but static. */
+@media(prefers-reduced-motion:reduce){.team-art{animation:none!important;opacity:var(--strength)!important;transform:none!important}}
+</style>
+</head>
+<body data-motion="blend">
+<header><a class="logo" href="#home">Cr<b>AI</b>gCo</a><nav class="nav"><a href="#about">About</a><a href="#team">T.O.P. Team</a><a href="#purpose">Apple Seed AI</a></nav></header>
+<main>
+<section class="hero" id="home" aria-label="CrAIgCo landing page with animated team artwork">
+<img class="team-art" src="assets/top-team.png" alt="" aria-hidden="true">
+<div class="hero-content"><div class="eyebrow">Human imagination × artificial intelligence</div><h1>Great ideas.<br><span class="accent">Real momentum.</span></h1><p>We make powerful technology feel personal—through creative collaboration, practical education, and a little glorious mischief.</p><div class="buttons"><a class="btn" href="#team">Meet the T.O.P. Team</a><a class="btn secondary" href="#purpose">Explore our mission</a></div></div>
+</section>
+<section class="controls" aria-label="Live animation studio">
+<div class="control"><label for="motion">Motion style</label><select id="motion"><option value="blend">Fade + drift ★</option><option value="fade">Fade in / out</option><option value="drift">Side-to-side drift</option><option value="float">Gentle bounce</option><option value="still">Still image</option></select></div>
+<div class="control"><label for="opacity">Image visibility <output id="opacityLabel">42%</output></label><input id="opacity" type="range" min="5" max="100" value="42"></div>
+<div class="control"><label for="speed">Cycle length <output id="speedLabel">10s</output></label><input id="speed" type="range" min="4" max="30" value="10"></div>
+<div class="control"><label for="travel">Movement <output id="travelLabel">14px</output></label><input id="travel" type="range" min="0" max="50" value="14"></div>
+<button id="pause" class="pause" type="button">Pause motion</button><p class="hint">Try 12–20% image visibility for the almost-subliminal look. This demonstration doesn't alter your existing hosted site.</p>
+</section>
+<section class="section" id="about"><div class="eyebrow">The CrAIgCo approach</div><h2>Serious business. Outrageous characters.</h2><p>Creative thinking, AI exploration, and useful results—with the human firmly in the director's chair.</p><div class="tiles" id="team"><article class="tile"><h3>AINGEL</h3><p>Coordination, organization, and turning ideas into action.</p></article><article class="tile"><h3>Claude — Sir Stiffness</h3><p>Deep analysis, careful reasoning, and polished output.</p></article><article class="tile"><h3>Gemini</h3><p>Research, inventive options, and visual exploration.</p></article></div></section>
+<section class="section" id="purpose"><div class="eyebrow">Apple Seed AI</div><h2>Technology should open doors.</h2><p>Digital independence and approachable AI education are central to the CrAIgCo vision.</p></section>
+</main><footer>Cr<b>AI</b>gCo · T.O.P. Team · Working animation prototype</footer>
+<script>
+// ★ All preview controls update CSS variables—no GIF conversion or JavaScript animation library required.
+const root=document.documentElement,body=document.body;
+const motion=document.querySelector('#motion'),opacity=document.querySelector('#opacity'),speed=document.querySelector('#speed'),travel=document.querySelector('#travel'),pause=document.querySelector('#pause');
+motion.addEventListener('change',()=>{body.dataset.motion=motion.value});
+opacity.addEventListener('input',()=>{root.style.setProperty('--strength',opacity.value/100);document.querySelector('#opacityLabel').textContent=opacity.value+'%'});
+speed.addEventListener('input',()=>{root.style.setProperty('--duration',speed.value+'s');document.querySelector('#speedLabel').textContent=speed.value+'s'});
+travel.addEventListener('input',()=>{root.style.setProperty('--travel',travel.value+'px');document.querySelector('#travelLabel').textContent=travel.value+'px'});
+pause.addEventListener('click',()=>{const paused=body.classList.toggle('paused');pause.textContent=paused?'Resume motion':'Pause motion'});
+</script>
+</body></html>
